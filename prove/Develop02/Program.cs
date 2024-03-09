@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+//Some additions I made to exceed expectations is that I included
+//the date and the time in the display.
+//Also I labeled the prompt and journal entry when they are displayed.
 
 class Program
 {
