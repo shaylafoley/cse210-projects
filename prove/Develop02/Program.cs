@@ -29,7 +29,7 @@ class Program
                     WriteNewEntry(theJournal);
                     break;
                 case "2":
-                    theJournal.Display();
+                    theJournal.DisplayAll();
                     break;
                 case "3":
                     SaveToFile(theJournal);
