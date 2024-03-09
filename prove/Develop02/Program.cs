@@ -5,6 +5,7 @@ using System.IO;
 //Some additions I made to exceed expectations is that I included
 //the date and the time in the display.
 //Also I labeled the prompt and journal entry when they are displayed.
+//Also wrote labels as the files are loading and saving to instruct journal writer better what is happening.
 
 class Program
 {
@@ -14,6 +15,7 @@ class Program
 
         while (true)
         {
+            Console.WriteLine();
             Console.WriteLine("Welcome to the Journal Program:");
             Console.WriteLine("Please select from the following options:");
             Console.WriteLine("1. Write");
@@ -35,10 +37,10 @@ class Program
                     theJournal.DisplayAll();
                     break;
                 case "3":
-                    SaveToFile(theJournal);
+                    LoadFromFile(theJournal);
                     break;
                 case "4":
-                    LoadFromFile(theJournal);
+                    SaveToFile(theJournal);
                     break;
                 case "5":
                     return;
@@ -63,8 +65,9 @@ class Program
         int index = rand.Next(_prompts.Length);
         string prompt = _prompts[index];
 
+        Console.WriteLine();
         Console.WriteLine($"Prompt: {prompt}");
-        Console.WriteLine(">");
+        Console.Write(">");
         string Response = Console.ReadLine();
         string Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -72,15 +75,23 @@ class Program
     }
     static void SaveToFile(Journal myJournal)
     {
+        Console.WriteLine();
         Console.WriteLine("Enter the filename to save:");
         string filename = Console.ReadLine();
         myJournal.SaveToFile(filename);
+        Console.WriteLine();
+        Console.WriteLine("Saving file...");
+        Console.WriteLine();
     }
     static void LoadFromFile(Journal myJournal)
     {
+        Console.WriteLine();
         Console.WriteLine("Enter the file to load:");
         string filename = Console.ReadLine();
         myJournal.LoadFromFile(filename);
+        Console.WriteLine();
+        Console.WriteLine("Loading journal...");
+        Console.WriteLine();
     }
 
 }    
