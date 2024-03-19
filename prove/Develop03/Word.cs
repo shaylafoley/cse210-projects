@@ -3,22 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 public class Word
 {
-    public string _text{get; }
-    private int _index {get; }
-    public bool _isHidden{get; private set; }
+    private string _text;
+    private bool _isHidden;
 
 
-    public Word(string Text, int Index)
+    public Word(string Text)
     {
         _text = Text;
-        _index = Index;
         _isHidden = false;
 
     }
     public void Hide()
     {
+        //to hide the word
         _isHidden = true;
     }
-
+    public void Show()
+    {
+        //method to show the word
+        _isHidden = false;
+    }
+    public bool IsHidden()
+    {
+        //method to check if the word is hidden
+        return _isHidden;
+    }
+    public string GetDisplayText()
+    {
+        return _isHidden ? "____" : _text;
+    }
     
 }
