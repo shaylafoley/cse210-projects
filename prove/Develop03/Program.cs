@@ -1,5 +1,9 @@
 using System;
 using System.Runtime.InteropServices.Marshalling;
+
+//Made the program with a lot of white space
+//Labeled the first scripture and made sure it was visible each time
+//Can make it so it hides different amounts of words each time
 class Program
 {
     static void Main(string[] args)
