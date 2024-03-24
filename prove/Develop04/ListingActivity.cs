@@ -4,7 +4,6 @@
 public class ListingActivity : Activity
 {
     private string _random;
-    private string _count;
     List<string> _prompts = new List<string>();
 
     public ListingActivity(string name, string description, string duration)

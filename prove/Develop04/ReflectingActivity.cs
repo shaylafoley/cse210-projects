@@ -4,9 +4,6 @@ using System.Xml.Serialization;
 
 public class ReflectingActivity : Activity
 {
-    private List<string> _prompts;
-    private List<string> _questions;
-
     public ReflectingActivity(string name, string description, string duration)
      : base(name, description, duration)
     {
@@ -61,13 +58,5 @@ public class ReflectingActivity : Activity
         return questions[randomIndex];
 
         
-    }
-    public void DisplayPrompt()
-    {
-
-    }
-    public void DisplayQuestions()
-    {
-
     }
 }
