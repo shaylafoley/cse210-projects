@@ -1,10 +1,23 @@
+namespace GoalProgram{
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
 
-    class SimpleGoal (string shortname, string description, string points, bool isComplete) 
-    : base(name, description, points)
+public SimpleGoal(string name, string description, string points, bool isComplete) : base(name, description, points)
+{
+    _isComplete = isComplete;
+}
+    public override void RecordEvent()
     {
-        _isComplete = isComplete;
+     
     }
+    public override bool IsComplete()
+    {
+        return false;
+    }
+    public override string GetStringRepresentation()
+    {
+        return $"{_description}";
+    }
+}
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel;
 
+namespace GoalProgram{
 public class GoalManager
 {
     List<Goal> _goals = new List<Goal>();
@@ -42,5 +43,6 @@ public void SaveGoals()
 public void LoadGoals()
 {
     
+}
 }
 }
