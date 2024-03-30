@@ -3,21 +3,23 @@ using System.ComponentModel;
 namespace GoalProgram{
 public class EternalGoal : Goal
 {
-public EternalGoal(string name, string description, string points) :base (name, description, points)
+public EternalGoal(string name, string description, int points) :base (name, description, points)
 {
 
 }
     public override void RecordEvent()
     {
-
+        _points += _points;
+        Console.WriteLine($"Goal {_shortname} recorded!  You gained {_points}.");
     }
-    public override bool IsComplete()
+    public override string IsComplete()
     {
-        return false;
+        return $"[ ]";
     }
     public override string GetStringRepresentation()
     {
-        return $"{_description}";
+        string completionStatus = IsComplete();
+       return $"{completionStatus}, {_shortname}, {_description}, {_points}";
     }
 }
 }

@@ -1,23 +1,24 @@
 namespace GoalProgram{
 public class SimpleGoal : Goal
 {
-    private bool _isComplete;
 
-public SimpleGoal(string name, string description, string points, bool isComplete) : base(name, description, points)
+public SimpleGoal(string name, string description, int points) : base(name, description, points)
 {
-    _isComplete = isComplete;
+    
 }
     public override void RecordEvent()
     {
-     
+     _points += _points;
+     Console.WriteLine($"Goal {_shortname} recorded!  You gained {_points} points!");
     }
-    public override bool IsComplete()
+    public override string IsComplete()
     {
-        return false;
+        return "[X]";
     }
     public override string GetStringRepresentation()
     {
-        return $"{_description}";
+        string completionStatus = IsComplete();
+        return $"{completionStatus},{_shortname},{_description},{_points}";
     }
 }
 }
