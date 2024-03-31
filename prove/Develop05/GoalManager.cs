@@ -55,7 +55,7 @@ public void Start()
                 break;
             case 7:
                 Console.WriteLine();
-                Console.WriteLine("Exitin the program....");
+                Console.WriteLine("Exiting the program....");
                 Thread.Sleep(2000);
                 break;
 

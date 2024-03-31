@@ -1,3 +1,3 @@
-[X],Exercise,20 min a day,20
-[ ], Study, scirptures 30 min a day, 60
-[ ] 1/3, Temple, (atend 3 times in 3 months, 40, 100 )
+[X],Exercise,20 minutes a day,60
+[ ], Study, scriptures 30 minutes a day, 80
+[X] 3/3, Temple, (Attend temple 3 times in 3 months, 520, 200 )
