@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime;
+using System.Runtime.CompilerServices;
 
 namespace GoalProgram
 {
@@ -44,7 +45,7 @@ public void Start()
                 SaveGoals();
                 break;
             case 4:
-                //LoadGoals();
+                LoadGoals();
                 break;
             case 5:
                 RecordEvent();
@@ -198,7 +199,7 @@ public void SaveGoals()
     }
     Console.WriteLine("Goals saved Successfully.");
 }
-/*public void LoadGoals()
+public void LoadGoals()
 {
     Console.Write("Enter the file you want to load goals from: ");
     string fileName = Console.ReadLine();
@@ -218,28 +219,29 @@ public void SaveGoals()
         }
         Console.WriteLine("Goals Loaded.");
 }
-}
-}
+//}
+//}
 
-public string CreatePerson(string line);
+private Goal CreatePerson(string line)
 {
-    string[] parts = line.Split(':');
-    if (parts.Length >= 2)
+    string[] parts = line.Split(',');
+    if (parts.Length >= 3)
     {
         string goalType = parts[0];
         string name = parts[1];
-        int points = int.Parse(parts[2]);
+        string description = parts[2];
+        int points = int.Parse(parts[3]);
 
         switch (goalType)
         {
             case "Simple Goal":
-                return new SimpleGoal(name, "", points);
+                return new SimpleGoal(name, description, points);
             case "Eternal Goal":
-                return new EternalGoal(name, "", points);
+                return new EternalGoal(name, description, points);
             case "Checklist Goal":
-                int target = int.Parse(parts[3]);
-                int bonus = int.Parse(parts[4]);
-                return new ChecklistGoal(name, "", points,  target, bonus, 0);
+                int target = int.Parse(parts[4]);
+                int bonus = int.Parse(parts[5]);
+                return new ChecklistGoal(name, description, points,  target, bonus, 0);
             default:
                 Console.WriteLine("Unknown.");
                 return null;
@@ -251,6 +253,5 @@ public string CreatePerson(string line);
         return null;
      }
 }
- */   
 }
 }
