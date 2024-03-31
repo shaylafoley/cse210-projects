@@ -22,6 +22,10 @@ public abstract class Goal
         string completionStatus = IsComplete();
         return $"{completionStatus} {_shortname} ({_description})";
     }
+    public int Points
+    {
+        get { return _points; }
+    }
     public virtual string GetStringRepresentation()
     {
         string completionStatus = IsComplete();

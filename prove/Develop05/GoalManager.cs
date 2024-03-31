@@ -25,6 +25,9 @@ public void Start()
         Console.WriteLine("  3. Save Goals");
         Console.WriteLine("  4. Load Goals");
         Console.WriteLine("  5. Record Event");
+        Console.WriteLine("  6. Display Total Points");
+        Console.WriteLine("  7. Exit");
+        Console.WriteLine();
         Console.WriteLine("Select a choice from the menu: ");
 
         if (int.TryParse(Console.ReadLine(), out option))
@@ -38,7 +41,7 @@ public void Start()
                 ListGoalDetails();
                 break;
             case 3:
-                //SaveGoals();
+                SaveGoals();
                 break;
             case 4:
                 //LoadGoals();
@@ -50,6 +53,7 @@ public void Start()
                 DisplayPlayerInfo();
                 break;
             case 7:
+                Console.WriteLine();
                 Console.WriteLine("Exitin the program....");
                 Thread.Sleep(2000);
                 break;
@@ -60,7 +64,7 @@ public void Start()
         }
         else
         {
-            Console.WriteLine("Invalid chose!");
+            Console.WriteLine("Invalid choice!");
         }
 
        } while (option != 7);
@@ -68,12 +72,15 @@ public void Start()
 }
 public void DisplayPlayerInfo()
 {
+    
     Console.WriteLine($"You have {_score} points.");
 }
+
 public void ListGoalNames()
 {
     Console.WriteLine("Goal Names:");
     int count = 1;
+    Console.WriteLine();
     foreach (var goal in _goals)
     {
         Console.WriteLine($"{count}. {goal}");
@@ -84,6 +91,7 @@ public void ListGoalDetails()
 {
    //List the details of each goal, including the checkbox
     Console.WriteLine("Your Goals:");
+    Console.WriteLine();
     foreach (var goal in _goals)
     {
         Console.WriteLine(goal.GetDetailsString());
@@ -92,10 +100,12 @@ public void ListGoalDetails()
 }
 public void CreateGoal()
 {
+    Console.WriteLine();
     Console.WriteLine("The Types of Goals are: ");
     Console.WriteLine("  1. Simple Goal");
     Console.WriteLine("  2. Eternal Goal");
     Console.WriteLine("  3. Checklist Goal");
+    Console.WriteLine();
     Console.WriteLine("Which type of goal would you like to create? ");
    
     string option = Console.ReadLine();
@@ -104,6 +114,7 @@ public void CreateGoal()
     switch (option)
     {
         case "1":
+        Console.WriteLine();
         Console.WriteLine("What is the name of your goal?");
         string nameS = Console.ReadLine();
         Console.WriteLine("What is a short description of your goal? ");
@@ -115,6 +126,7 @@ public void CreateGoal()
         break;
 
         case "2":
+        Console.WriteLine();
         Console.WriteLine("What is the name of your goal?");
         string nameE = Console.ReadLine();
         Console.WriteLine("What is a short description of your goal? ");
@@ -126,6 +138,7 @@ public void CreateGoal()
         break;
 
         case "3":
+        Console.WriteLine();
         Console.WriteLine("What is the name of your goal?");
         string nameC = Console.ReadLine();
         Console.WriteLine("What is a short description of your goal? ");
@@ -152,6 +165,7 @@ public void RecordEvent()
 
 {
     ListGoalNames();
+    Console.WriteLine();
     Console.WriteLine("Which goal did you accomplish?");
     int goalNumber;
     int.TryParse(Console.ReadLine(), out goalNumber);
@@ -159,15 +173,17 @@ public void RecordEvent()
     {
         Goal goal = _goals[goalNumber - 1];
         goal.RecordEvent();
-        Console.WriteLine("Way to go!  You have accomplished your goal!");
+        _score += goal.Points;
+        Console.WriteLine("Way to go!");
     }
     //asks the user which goal they have done and then
     //records the event by calling the RecordEvent method
     //on that goal
 }
-/*public void SaveGoals()
+public void SaveGoals()
 
 { 
+    Console.WriteLine();
     Console.Write("Enter the file you want this saved to: "); 
     string fileName = Console.ReadLine();
    
@@ -182,7 +198,7 @@ public void RecordEvent()
     }
     Console.WriteLine("Goals saved Successfully.");
 }
-public void LoadGoals()
+/*public void LoadGoals()
 {
     Console.Write("Enter the file you want to load goals from: ");
     string fileName = Console.ReadLine();
