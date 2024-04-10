@@ -27,11 +27,7 @@ public class Activity
     public virtual void GetSummary()
     {
         Console.WriteLine();
-        Console.WriteLine($"Here is your summary for {_type}:");
-        Console.WriteLine($"Date: {_date}");
-        Console.WriteLine($"Minutes: {_minutes}");
-        Console.WriteLine($"Distance: {GetDistance()}");
-        Console.WriteLine($"Pace: {GetPace()}");
-        Console.WriteLine($"Speed: {GetSpeed()}");
+        Console.WriteLine($"{_date} {_type} ({_minutes} min)- Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile");
+        Console.WriteLine();
     }
 }
