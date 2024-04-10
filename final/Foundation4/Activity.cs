@@ -27,7 +27,7 @@ public class Activity
     public virtual void GetSummary()
     {
         Console.WriteLine();
-        Console.WriteLine($"{_date} {_type} ({_minutes} min)- Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile");
+        Console.WriteLine($"{_date} {_type} ({_minutes} min)- Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace().ToString("0.00")} min per mile");
         Console.WriteLine();
     }
 }
